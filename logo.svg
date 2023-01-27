@@ -1,0 +1,14 @@
+<svg width="500" height="500" xmlns="http://www.w3.org/2000/svg">
+ <g id="Layer_1">
+  <title>Layer 1</title>
+  <rect rx="50" id="svg_14" height="500" width="500" y="0" x="0" stroke="#222222" fill="#222222"/>
+  <rect fill-opacity="0" stroke="#61dafb" stroke-width="15" id="svg_1" height="267.00001" width="180.00001" y="141.75" x="159.99999" fill="#ffffff"/>
+  <rect fill-opacity="0" id="svg_2" height="25" width="221" y="116.75" x="139.5" stroke-width="15" stroke="#61dafb" fill="#ffffff"/>
+  <rect fill-opacity="0" id="svg_3" height="25" width="221" y="409.75" x="139.5" stroke-width="15" stroke="#61dafb" fill="#ffffff"/>
+  <rect fill-opacity="0" id="svg_5" height="185" width="89" y="182.75" x="205.5" stroke-width="15" stroke="#61dafb" fill="#ffffff"/>
+  <rect fill-opacity="0" stroke="#61dafb" id="svg_6" height="25" width="252.00001" y="435.75" x="123.99999" stroke-width="15" fill="#ffffff"/>
+  <line stroke="#61dafb" id="svg_7" y2="79.25" x2="247" y1="104.25" x1="248" stroke-width="15" fill="#61dafb"/>
+  <line id="svg_8" y2="64.25" x2="271" y1="84.25" x1="244" stroke-width="15" stroke="#61dafb" fill="none"/>
+  <ellipse ry="16" rx="16" id="svg_9" cy="55.25" cx="284" stroke-width="15" stroke="#61dafb" fill="#61dafb"/>
+ </g>
+</svg>
