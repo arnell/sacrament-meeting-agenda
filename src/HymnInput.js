@@ -386,7 +386,7 @@ const HymnInput = ({ label, className, fieldName }) => {
       <StyledLabel>{label} #</StyledLabel>
       <StyledHymnNumInput
         type="text"
-        onChange={handleNumberChange}
+        onInput={handleNumberChange}
         name={`${fieldName}-num`}
       />
       <FlexInput type="text" name={fieldName} />

@@ -2,13 +2,13 @@ import React from 'react';
 import { Field } from 'formik';
 import PropTypes from 'prop-types';
 
-const FormikInputField = ({ type, name, className, onChange }) => (
+const FormikInputField = ({ type, name, className, onInput }) => (
   <Field
     as="input"
     type={type}
     name={name}
     className={className}
-    onChange={onChange}
+    onInput={onInput}
   />
 );
 
@@ -16,7 +16,7 @@ FormikInputField.propTypes = {
   type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   className: PropTypes.string,
-  onChange: PropTypes.func,
+  onInput: PropTypes.func,
 };
 
 export default FormikInputField;
