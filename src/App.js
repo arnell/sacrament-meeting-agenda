@@ -19,11 +19,19 @@ const StyledSubtext = styled.div`
   font-size: smaller;
 `;
 
+const StyledButton = styled.button`
+  margin-right: 10px;
+`;
+
 const getNextSundayStr = () => {
   const today = new Date();
   const daysUntilSunday = (7 - today.getDay()) % 7;
   const sunday = addDays(today, daysUntilSunday);
   return format(sunday, 'LLLL d, yyyy');
+};
+
+const onPrintClick = () => {
+  window.print();
 };
 
 const App = () => {
@@ -143,13 +151,20 @@ const App = () => {
               />
             </div>
             <div className="row no-print">
-              <button
+              <StyledButton
                 type="button"
                 className="btn btn-outline-primary"
                 onClick={onPermalinkClick}
               >
                 Permalink
-              </button>
+              </StyledButton>
+              <StyledButton
+                type="button"
+                className="btn btn-outline-primary"
+                onClick={onPrintClick}
+              >
+                Print
+              </StyledButton>
             </div>
           </div>
         );
