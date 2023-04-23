@@ -6,6 +6,7 @@ import { addDays, format } from 'date-fns';
 
 import './App.css';
 import TextBox from './TextBox';
+import TextArea from './TextArea';
 import HymnInput from './HymnInput';
 import CallingsSectionV2 from './CallingsSection';
 import ContentItemsSection from './ContentItemsSection';
@@ -130,10 +131,10 @@ const App = () => {
             </div>
             <ContentItemsSection />
             <div className="row">
-              <TextBox
+              <TextArea
                 label="Announcement"
-                className="col-sm-12"
                 fieldName="finalAnnouncement"
+                className="col-sm-12"
               />
             </div>
             <div className="row">

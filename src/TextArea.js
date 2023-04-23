@@ -23,10 +23,9 @@ const TextArea = ({ label, index, className, fieldName, removeButton }) => {
 
   return (
     <FlexContainer className={className}>
-      {label ||
-        (index !== undefined && (
-          <StyledLabel>{label || `${index + 1}.`}</StyledLabel>
-        ))}
+      {(label || index !== undefined) && (
+        <StyledLabel>{label || `${index + 1}.`}</StyledLabel>
+      )}
       <Field
         as="textarea"
         name={fieldName}
