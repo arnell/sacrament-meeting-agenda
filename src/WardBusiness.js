@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 import EnumeratedSection from './EnumeratedSection';
 import FlexTextBox from './FlexTextBox';
@@ -20,12 +21,20 @@ SizedFlexTextBox.propTypes = {
   removeButton: PropTypes.oneOfType([PropTypes.element, PropTypes.bool]),
 };
 
+const StyleWardBusinessItems = styled.span`
+  font-weight: normal;
+  font-style: italic;
+  font-size: smaller;
+`;
+
 const WardBusiness = () => (
   <>
     <div className="row">
       <div className="col-sm-12">
-        Stake Business --- Ordinations --- Advancements --- Memberships ---
-        Confirmations --- Blessings
+        Ward / Stake Business{' '}
+        <StyleWardBusinessItems>
+          (Ordinations, Advancements, Memberships, Confirmations, Blessings)
+        </StyleWardBusinessItems>
       </div>
     </div>
     <EnumeratedSection

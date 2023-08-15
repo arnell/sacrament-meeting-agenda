@@ -1,6 +1,6 @@
 @page {
   size: auto;
-  margin: 0mm;
+  margin: 0 !important;
 }
 @media print {
   .col-sm-1,
@@ -35,7 +35,8 @@
   .col-sm-7 {
     width: 58.333333333333336%;
   }
-  .col-sm-6 {
+  .col-sm-6,
+  .col-md-6 {
     width: 50%;
   }
   .col-sm-5 {
@@ -71,4 +72,5 @@
 }
 body {
   font-weight: bold;
+  background-color: #aaa;
 }

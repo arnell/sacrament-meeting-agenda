@@ -12,15 +12,19 @@ const StyledAsDiv = styled.div`
   margin: 0 5px;
 `;
 
-const StyledTextArea = styled(TextArea)`
+const StyledNameTextArea = styled(TextArea)`
+  flex: 0.8;
+`;
+
+const StyledCallingTextArea = styled(TextArea)`
   flex: 1;
 `;
 
 const CallingInput = ({ className, fieldName }) => (
   <ContainerDiv className={`${className}`}>
-    <StyledTextArea fieldName={`${fieldName}-name`} />
+    <StyledNameTextArea fieldName={`${fieldName}-name`} />
     <StyledAsDiv>as</StyledAsDiv>
-    <StyledTextArea fieldName={`${fieldName}-calling`} />
+    <StyledCallingTextArea fieldName={`${fieldName}-calling`} />
   </ContainerDiv>
 );
 

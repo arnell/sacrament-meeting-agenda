@@ -14,6 +14,24 @@ import FormikInputField from './FormikInputField';
 import Announcements from './Announcements';
 import WardBusiness from './WardBusiness';
 
+const StyledContainer = styled.div`
+  box-shadow: 3px 5px 8px 1px;
+  padding: 20px 0;
+  background-color: white;
+
+  @media (min-width: 1200px) {
+    max-width: 960px;
+  }
+
+  @media (min-width: 576px) {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  @media print {
+    padding: 0 15px;
+  }
+`;
+
 const StyledSubtext = styled.div`
   font-weight: normal;
   font-style: italic;
@@ -54,7 +72,7 @@ const App = () => {
           window.location = `?${urlQuery.substring(1)}`;
         };
         return (
-          <div className="container">
+          <StyledContainer className="container">
             <div className="row">
               <div className="col-sm-6">
                 <h4>Sacrament Meeting Agenda</h4>
@@ -68,24 +86,24 @@ const App = () => {
             <div className="row">
               <TextBox
                 label="Presiding"
-                className="col-sm-6"
+                className="col-md-6"
                 fieldName="presiding"
               />
               <TextBox
                 label="Conducting"
-                className="col-sm-6"
+                className="col-md-6"
                 fieldName="conducting"
               />
             </div>
             <div className="row">
               <TextBox
                 label="Chorister"
-                className="col-sm-6"
+                className="col-md-6"
                 fieldName="chorister"
               />
               <TextBox
                 label="Organist"
-                className="col-sm-6"
+                className="col-md-6"
                 fieldName="organist"
               />
             </div>
@@ -152,22 +170,24 @@ const App = () => {
               />
             </div>
             <div className="row no-print">
-              <StyledButton
-                type="button"
-                className="btn btn-outline-primary"
-                onClick={onPermalinkClick}
-              >
-                Permalink
-              </StyledButton>
-              <StyledButton
-                type="button"
-                className="btn btn-outline-primary"
-                onClick={onPrintClick}
-              >
-                Print
-              </StyledButton>
+              <div className="col-sm-12">
+                <StyledButton
+                  type="button"
+                  className="btn btn-outline-primary"
+                  onClick={onPermalinkClick}
+                >
+                  Permalink
+                </StyledButton>
+                <StyledButton
+                  type="button"
+                  className="btn btn-outline-primary"
+                  onClick={onPrintClick}
+                >
+                  Print
+                </StyledButton>
+              </div>
             </div>
-          </div>
+          </StyledContainer>
         );
       }}
     </Formik>
