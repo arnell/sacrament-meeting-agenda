@@ -8,6 +8,7 @@ const EnumeratedSection = ({
   sectionItem: SectionItem,
   fieldName,
   addText,
+  addButtonColClass = true,
   initialCount = 2,
 }) => {
   const { values: formikValues, setFieldValue } = useFormikContext();
@@ -49,7 +50,7 @@ const EnumeratedSection = ({
     <>
       {rows}
       <div className="row no-print">
-        <div className="col-sm-12">
+        <div className={addButtonColClass && 'col-sm-12'}>
           <button
             type="button"
             className="btn btn-outline-primary"
@@ -67,6 +68,7 @@ EnumeratedSection.propTypes = {
   sectionItem: PropTypes.elementType,
   fieldName: PropTypes.string,
   addText: PropTypes.string,
+  addButtonColClass: PropTypes.bool,
   initialCount: PropTypes.number,
 };
 

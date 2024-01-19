@@ -86,24 +86,24 @@ const App = () => {
             <div className="row">
               <TextBox
                 label="Presiding"
-                className="col-md-6"
+                className="col-sm-6"
                 fieldName="presiding"
               />
               <TextBox
                 label="Conducting"
-                className="col-md-6"
+                className="col-sm-6"
                 fieldName="conducting"
               />
             </div>
             <div className="row">
               <TextBox
                 label="Chorister"
-                className="col-md-6"
+                className="col-sm-6"
                 fieldName="chorister"
               />
               <TextBox
                 label="Organist"
-                className="col-md-6"
+                className="col-sm-6"
                 fieldName="organist"
               />
             </div>
