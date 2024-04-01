@@ -3,19 +3,15 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import EnumeratedSection from './EnumeratedSection';
-import FlexTextBox from './FlexTextBox';
+import TextArea from './TextArea';
 
-const SizedFlexTextBox = ({ index, fieldName, removeButton }) => (
+const SizedTextArea = ({ index, fieldName, removeButton }) => (
   <div className="col-sm-12">
-    <FlexTextBox
-      index={index}
-      fieldName={fieldName}
-      removeButton={removeButton}
-    />
+    <TextArea index={index} fieldName={fieldName} removeButton={removeButton} />
   </div>
 );
 
-SizedFlexTextBox.propTypes = {
+SizedTextArea.propTypes = {
   index: PropTypes.number,
   fieldName: PropTypes.string,
   removeButton: PropTypes.oneOfType([PropTypes.element, PropTypes.bool]),
@@ -38,7 +34,7 @@ const WardBusiness = () => (
       </div>
     </div>
     <EnumeratedSection
-      sectionItem={SizedFlexTextBox}
+      sectionItem={SizedTextArea}
       addText="Add Item"
       fieldName="ward-business"
     />

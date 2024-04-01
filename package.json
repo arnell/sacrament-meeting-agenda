@@ -1,17 +1,17 @@
 {
   "name": "sacrament-meeting-agenda",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://arnell.github.io/sacrament-meeting-agenda",
   "private": true,
   "dependencies": {
-    "date-fns": "^2.29.3",
-    "formik": "^2.2.9",
+    "date-fns": "^3.6.0",
+    "formik": "^2.4.5",
     "prop-types": "^15.8.1",
-    "query-string": "^8.1.0",
+    "query-string": "^9.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "^5.0.1",
-    "styled-components": "^5.3.6"
+    "styled-components": "^6.1.8"
   },
   "scripts": {
     "start": "react-scripts start",
