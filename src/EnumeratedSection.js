@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useFormikContext } from 'formik';
 import PropTypes from 'prop-types';
 
@@ -9,19 +9,15 @@ const EnumeratedSection = ({
   fieldName,
   addText,
   addButtonColClass = true,
-  initialCount = 2,
 }) => {
   const { values: formikValues, setFieldValue } = useFormikContext();
-  let savedCount;
+  let itemCount = 1;
   if (formikValues[`${fieldName}-count`]) {
-    savedCount = +formikValues[`${fieldName}-count`];
+    itemCount = +formikValues[`${fieldName}-count`];
   }
-
-  const [itemCount, setItemCount] = useState(savedCount || initialCount);
 
   const updateItemCount = (delta) => {
     const newValue = itemCount + delta;
-    setItemCount(newValue);
     setFieldValue(`${fieldName}-count`, newValue);
     const parentFieldName = `${fieldName}-${itemCount}`;
     Object.keys(formikValues).forEach((field) => {
@@ -50,7 +46,7 @@ const EnumeratedSection = ({
     <>
       {rows}
       <div className="row no-print">
-        <div className={addButtonColClass && 'col-sm-12'}>
+        <div className={addButtonColClass ? 'col-sm-12' : undefined}>
           <button
             type="button"
             className="btn btn-outline-primary"
@@ -69,11 +65,6 @@ EnumeratedSection.propTypes = {
   fieldName: PropTypes.string,
   addText: PropTypes.string,
   addButtonColClass: PropTypes.bool,
-  initialCount: PropTypes.number,
-};
-
-EnumeratedSection.defaultProps = {
-  initialCount: 2,
 };
 
 export default EnumeratedSection;

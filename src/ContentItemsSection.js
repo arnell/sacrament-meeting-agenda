@@ -7,7 +7,6 @@ const ContentItemsSection = () => (
   <EnumeratedSection
     sectionItem={ContentItem}
     addText="Add Content Item"
-    initialCount={3}
     fieldName="content-item-section"
   />
 );

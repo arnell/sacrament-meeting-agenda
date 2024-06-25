@@ -63,7 +63,7 @@
     padding: 20px;
   }
   .no-print {
-    display: none;
+    display: none !important;
   }
 }
 .row {

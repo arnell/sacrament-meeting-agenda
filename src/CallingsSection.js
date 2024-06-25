@@ -47,7 +47,6 @@ const CallingsSection = () => (
         fieldName="release-section"
         addText="Add Release"
         addButtonColClass={false}
-        initialCount={1}
       />
       <div className="row">
         <StyledCallingVerbage>
@@ -59,14 +58,13 @@ const CallingsSection = () => (
     </div>
     <div className="col-sm-6">
       <div>
-        We Have Called <StyledNote>(ask to stand)</StyledNote>:
+        We Have Called: <StyledNote>(ask to stand)</StyledNote>
       </div>
       <EnumeratedSection
         sectionItem={CallingReleaseRow}
         fieldName="calling-section"
         addText="Add Calling"
         addButtonColClass={false}
-        initialCount={1}
       />
       <div className="row">
         <StyledCallingVerbage>

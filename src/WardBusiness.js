@@ -27,7 +27,7 @@ const WardBusiness = () => (
   <>
     <div className="row">
       <div className="col-sm-12">
-        Ward / Stake Business{' '}
+        Ward / Stake Business:{' '}
         <StyleWardBusinessItems>
           (Ordinations, Advancements, Memberships, Confirmations, Blessings)
         </StyleWardBusinessItems>

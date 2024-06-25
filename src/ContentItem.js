@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useFormikContext } from 'formik';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
@@ -21,9 +21,7 @@ const ContentItem = ({ fieldName, removeButton }) => {
     testimonies: { id: 'testimonies', label: 'Testimonies' },
     custom: { id: 'custom', label: 'Custom...' },
   };
-  const [selected, setSelected] = useState(
-    formikValues[`${fieldName}-label`] || 'speaker'
-  );
+  const selected = formikValues[`${fieldName}-label`] || 'speaker';
 
   const onSelect = (value) => {
     let fieldValue;
@@ -35,7 +33,6 @@ const ContentItem = ({ fieldName, removeButton }) => {
       fieldValue = value;
     }
     if (fieldValue) {
-      setSelected(fieldValue);
       setFieldValue(`${fieldName}-label`, fieldValue);
     }
   };
