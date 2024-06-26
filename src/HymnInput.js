@@ -349,6 +349,19 @@ const hymns = [
   { id: '339', name: 'My Country, ’Tis of Thee' },
   { id: '340', name: 'The Star-Spangled Banner' },
   { id: '341', name: 'God Save the King' },
+  { id: '1001', name: 'Come, Thou Fount of Every Blessing' },
+  { id: '1002', name: 'When the Savior Comes Again' },
+  { id: '1003', name: 'It Is Well with My Soul' },
+  { id: '1004', name: 'I Will Walk with Jesus' },
+  { id: '1005', name: 'His Eye Is on the Sparrow' },
+  { id: '1006', name: 'Think a Sacred Song' },
+  { id: '1007', name: 'As Bread Is Broken' },
+  { id: '1008', name: 'Bread of Life, Living Water' },
+  { id: '1009', name: 'Gethsemane' },
+  { id: '1201', name: 'Hail the Day That Sees Him Rise' },
+  { id: '1202', name: 'He Is Born, the Divine Christ Child' },
+  { id: '1203', name: 'What Child Is This?' },
+  { id: '1204', name: 'Star Bright' },
 ];
 
 /* eslint-disable no-param-reassign */
