@@ -30,7 +30,7 @@ const StyledContainer = styled.div`
     margin-bottom: 10px;
   }
   @media print {
-    padding: 0 15px;
+    padding: 0;
   }
 `;
 
