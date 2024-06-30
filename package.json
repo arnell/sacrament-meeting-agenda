@@ -1,6 +1,6 @@
 {
   "name": "sacrament-meeting-agenda",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "homepage": "https://arnell.github.io/sacrament-meeting-agenda",
   "private": true,
   "dependencies": {

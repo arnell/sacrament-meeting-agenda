@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useFormikContext } from 'formik';
 
@@ -7,7 +7,7 @@ import ClearModal from './ClearModal';
 
 const UtilsDiv = styled.div`
   position: fixed;
-  top: 100px;
+  top: 60px;
   right: 0;
   z-index: 10;
   display: flex;
@@ -28,12 +28,18 @@ const StyledButton = styled.button`
   box-shadow: 2px 5px 8px -4px black;
 `;
 
-const onPrintClick = () => {
-  window.print();
-};
+const MenuButton = styled(StyledButton)`
+  align-self: end;
+  i {
+    margin-right: unset;
+  }
+`;
+
+const shouldDefaultToToolbarOpen = () => window.innerWidth > 1250;
 
 const Toolbar = () => {
   const { values, resetForm } = useFormikContext();
+  const [showButtons, setShowButtons] = useState(shouldDefaultToToolbarOpen());
   const onPermalinkClick = () => {
     const urlQuery = Object.entries(values).reduce(
       (prev, current) =>
@@ -41,49 +47,78 @@ const Toolbar = () => {
       ''
     );
     window.location = `?${urlQuery.substring(1)}`;
+    setShowButtons(shouldDefaultToToolbarOpen());
   };
+
+  const onPrintClick = () => {
+    window.print();
+    setShowButtons(shouldDefaultToToolbarOpen());
+  };
+
+  const handleResizeWindowEvent = () => {
+    setShowButtons(shouldDefaultToToolbarOpen());
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResizeWindowEvent);
+    return () => window.removeEventListener('resize', handleResizeWindowEvent);
+  });
 
   return (
     <>
       <UtilsDiv className="no-print">
-        <StyledButton
-          type="button"
+        <MenuButton
           className="btn btn-primary"
           onClick={() => {
-            const newValues = { ...values };
-
-            Object.keys(newValues).forEach((key) => {
-              if (key.indexOf('-count') === -1) {
-                newValues[key] = '';
-              }
-            });
-            resetForm({ values: { ...newValues, ...getInitialFields() } });
+            setShowButtons(!showButtons);
           }}
         >
-          Clear All
-        </StyledButton>
-        <StyledButton
-          type="button"
-          className="btn btn-primary"
-          data-toggle="modal"
-          data-target="#clearSomeModal"
-        >
-          Clear Some...
-        </StyledButton>
-        <StyledButton
-          type="button"
-          className="btn btn-primary d-none"
-          onClick={onPermalinkClick}
-        >
-          Permalink
-        </StyledButton>
-        <StyledButton
-          type="button"
-          className="btn btn-primary"
-          onClick={onPrintClick}
-        >
-          Print
-        </StyledButton>
+          <i className="bi bi-list" />
+        </MenuButton>
+        {showButtons && (
+          <>
+            <StyledButton
+              type="button"
+              className="btn btn-primary"
+              onClick={() => {
+                const newValues = { ...values };
+
+                Object.keys(newValues).forEach((key) => {
+                  if (key.indexOf('-count') === -1) {
+                    newValues[key] = '';
+                  }
+                });
+                resetForm({ values: { ...newValues, ...getInitialFields() } });
+                setShowButtons(shouldDefaultToToolbarOpen());
+              }}
+            >
+              Clear All
+            </StyledButton>
+            <StyledButton
+              type="button"
+              className="btn btn-primary"
+              data-toggle="modal"
+              data-target="#clearSomeModal"
+              onClick={() => setShowButtons(shouldDefaultToToolbarOpen())}
+            >
+              Clear Some...
+            </StyledButton>
+            <StyledButton
+              type="button"
+              className="btn btn-primary d-none"
+              onClick={onPermalinkClick}
+            >
+              Permalink
+            </StyledButton>
+            <StyledButton
+              type="button"
+              className="btn btn-primary"
+              onClick={onPrintClick}
+            >
+              Print
+            </StyledButton>
+          </>
+        )}
       </UtilsDiv>
       <ClearModal />
     </>
