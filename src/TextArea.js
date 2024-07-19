@@ -1,5 +1,5 @@
-import { Field } from 'formik';
-import React, { useCallback } from 'react';
+import React, { useEffect, useRef } from 'react';
+import { Field, useField } from 'formik';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
@@ -9,17 +9,21 @@ const StyledLabel = styled.div`
   padding: 2px 5px 0 0;
 `;
 
-const onInput = (e) => {
-  e.target.style.height = '';
-  e.target.style.height = `${e.target.scrollHeight + 2}px`;
+/* eslint-disable no-param-reassign */
+const onChange = (node) => {
+  node.style.height = '';
+  node.style.height = `${node.scrollHeight + 2}px`;
 };
 
 const TextArea = ({ label, index, className, fieldName, removeButton }) => {
-  const textAreaRef = useCallback((node) => {
-    if (node !== null) {
-      onInput({ target: node });
+  const [field] = useField(fieldName);
+  const ref = useRef();
+
+  useEffect(() => {
+    if (ref.current) {
+      onChange(ref.current);
     }
-  }, []);
+  }, [field.value]);
 
   return (
     <FlexContainer className={className}>
@@ -31,8 +35,7 @@ const TextArea = ({ label, index, className, fieldName, removeButton }) => {
         name={fieldName}
         style={{ flex: 1, resize: 'none' }}
         rows="1"
-        innerRef={textAreaRef}
-        onInput={onInput}
+        innerRef={ref}
       />
       {removeButton}
     </FlexContainer>
