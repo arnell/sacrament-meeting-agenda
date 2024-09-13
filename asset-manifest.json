@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/sacrament-meeting-agenda/static/css/main.27a6612e.css",
-    "main.js": "/sacrament-meeting-agenda/static/js/main.af45cc23.js",
+    "main.js": "/sacrament-meeting-agenda/static/js/main.5cef6993.js",
     "index.html": "/sacrament-meeting-agenda/index.html",
     "main.27a6612e.css.map": "/sacrament-meeting-agenda/static/css/main.27a6612e.css.map",
-    "main.af45cc23.js.map": "/sacrament-meeting-agenda/static/js/main.af45cc23.js.map"
+    "main.5cef6993.js.map": "/sacrament-meeting-agenda/static/js/main.5cef6993.js.map"
   },
   "entrypoints": [
     "static/css/main.27a6612e.css",
-    "static/js/main.af45cc23.js"
+    "static/js/main.5cef6993.js"
   ]
 }
