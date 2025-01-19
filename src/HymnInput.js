@@ -411,7 +411,7 @@ const HymnInput = ({ label, className, fieldName }) => {
         onInput={handleNumberChange}
         name={`${fieldName}-num`}
       />
-      <FlexInput type="text" name={fieldName} />
+      <FlexInput name={fieldName} />
     </FlexContainer>
   );
 };

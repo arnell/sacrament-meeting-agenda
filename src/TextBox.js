@@ -11,10 +11,10 @@ const StyledLabel = styled.div`
 
 const TextBox = ({ label, index, className, fieldName, removeButton }) => (
   <FlexContainer className={className}>
-    <StyledLabel>
-      {label || (index !== undefined && `${index + 1}.`)}
-    </StyledLabel>
-    <FlexInput type="text" name={fieldName} />
+    {(label || index !== undefined) && (
+      <StyledLabel>{label || `${index + 1}.`}</StyledLabel>
+    )}
+    <FlexInput name={fieldName} />
     {removeButton}
   </FlexContainer>
 );

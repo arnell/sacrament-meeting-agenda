@@ -13,7 +13,7 @@ const clearableFields = [
   {
     id: 'clearPresidingConducting',
     label: 'Presiding / Conducting',
-    fields: ['presiding', 'conducting'],
+    fields: ['presiding', 'conducting', 'conductingCalling'],
     checked: true,
   },
   {
@@ -25,7 +25,7 @@ const clearableFields = [
   {
     id: 'clearExcuseWelcome',
     label: 'Excuse / Welcome',
-    fields: ['excuseWelcome'],
+    fields: ['excuse', 'welcome'],
     checked: true,
   },
   {
@@ -36,7 +36,7 @@ const clearableFields = [
   {
     id: 'clearHymns',
     label: 'Hymns',
-    fields: ['openingHymn', 'sacramentHym', 'closingHymn'],
+    fields: ['openingHymn', 'sacramentHymn', 'closingHymn'],
     checked: true,
   },
   {
@@ -54,7 +54,7 @@ const clearableFields = [
   {
     id: 'clearWardStakeBusiness',
     label: 'Ward / Stake Business',
-    fields: ['ward-business'],
+    fields: ['ward-business', 'stakeRep'],
     checked: true,
   },
   {
@@ -136,6 +136,9 @@ const ClearModal = () => {
                     const fieldsToNotClear = clearableFields.filter(
                       ({ id }) => !values[id]
                     );
+                    // Always maintain ward field
+                    fieldsToNotClear.push({ fields: ['ward'] });
+
                     const initialFields = getInitialFields();
 
                     Object.keys(newValues).forEach((key) => {

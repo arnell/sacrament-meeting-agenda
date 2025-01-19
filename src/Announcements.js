@@ -16,11 +16,13 @@ SizedTextArea.propTypes = {
   removeButton: PropTypes.oneOfType([PropTypes.element, PropTypes.bool]),
 };
 
-const Announcements = () => (
+const Announcements = ({ includeLabel = true }) => (
   <>
-    <div className="row">
-      <div className="col-sm-12">Announcements:</div>
-    </div>
+    {includeLabel && (
+      <div className="row">
+        <div className="col-sm-12">Announcements:</div>
+      </div>
+    )}
     <EnumeratedSection
       sectionItem={SizedTextArea}
       addText="Add Announcement"
@@ -30,3 +32,6 @@ const Announcements = () => (
 );
 
 export default Announcements;
+Announcements.propTypes = {
+  includeLabel: PropTypes.bool,
+};

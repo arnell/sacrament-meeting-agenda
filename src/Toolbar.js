@@ -4,6 +4,7 @@ import { useFormikContext } from 'formik';
 
 import getInitialFields from './getInitialFields';
 import ClearModal from './ClearModal';
+import useLocalStorage from './useLocalStorage';
 
 const UtilsDiv = styled.div`
   position: fixed;
@@ -35,11 +36,15 @@ const MenuButton = styled(StyledButton)`
   }
 `;
 
-const shouldDefaultToToolbarOpen = () => window.innerWidth > 1250;
+const shouldDefaultToToolbarOpen = () => window.innerWidth > 1280;
 
 const Toolbar = () => {
   const { values, resetForm } = useFormikContext();
   const [showButtons, setShowButtons] = useState(shouldDefaultToToolbarOpen());
+  const [sacAgendaVerbiage, setSacAgendaVerbiage] = useLocalStorage(
+    'sac-agenda-verbiage',
+    false
+  );
   const onPermalinkClick = () => {
     const urlQuery = Object.entries(values).reduce(
       (prev, current) =>
@@ -48,6 +53,11 @@ const Toolbar = () => {
     );
     window.location = `?${urlQuery.substring(1)}`;
     setShowButtons(shouldDefaultToToolbarOpen());
+  };
+
+  const onToggleVerbiageClick = () => {
+    setSacAgendaVerbiage(!sacAgendaVerbiage);
+    window.location.reload();
   };
 
   const onPrintClick = () => {
@@ -109,6 +119,13 @@ const Toolbar = () => {
               onClick={onPermalinkClick}
             >
               Permalink
+            </StyledButton>
+            <StyledButton
+              type="button"
+              className="btn btn-primary"
+              onClick={onToggleVerbiageClick}
+            >
+              Toggle Verbiage
             </StyledButton>
             <StyledButton
               type="button"

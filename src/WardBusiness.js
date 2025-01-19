@@ -23,15 +23,17 @@ const StyleWardBusinessItems = styled.span`
   font-size: smaller;
 `;
 
-const WardBusiness = () => (
+const WardBusiness = ({ includeLabel = true }) => (
   <>
     <div className="row">
-      <div className="col-sm-12">
-        Ward / Stake Business:{' '}
-        <StyleWardBusinessItems>
-          (Ordinations, Advancements, Memberships, Confirmations, Blessings)
-        </StyleWardBusinessItems>
-      </div>
+      {includeLabel && (
+        <div className="col-sm-12">
+          Ward / Stake Business:{' '}
+          <StyleWardBusinessItems>
+            (Ordinations, Advancements, Memberships, Confirmations, Blessings)
+          </StyleWardBusinessItems>
+        </div>
+      )}
     </div>
     <EnumeratedSection
       sectionItem={SizedTextArea}
@@ -42,3 +44,6 @@ const WardBusiness = () => (
 );
 
 export default WardBusiness;
+WardBusiness.propTypes = {
+  includeLabel: PropTypes.bool,
+};

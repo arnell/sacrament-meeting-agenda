@@ -40,7 +40,7 @@ CallingReleaseRow.propTypes = {
 
 const CallingsSection = () => (
   <div className="row">
-    <div className="col-sm-6">
+    <div className="col-lg-6">
       <div>We Have Released:</div>
       <EnumeratedSection
         sectionItem={CallingReleaseRow}
@@ -56,9 +56,10 @@ const CallingsSection = () => (
         </StyledCallingVerbage>
       </div>
     </div>
-    <div className="col-sm-6">
+    <div className="col-lg-6">
       <div>
-        We Have Called: <StyledNote>(ask to stand)</StyledNote>
+        We Have Called:{' '}
+        <StyledNote>(and ask to stand, the following)</StyledNote>
       </div>
       <EnumeratedSection
         sectionItem={CallingReleaseRow}

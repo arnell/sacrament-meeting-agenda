@@ -4,8 +4,8 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import FlexContainer from './FlexContainer';
-import FlexInput from './FlexInput';
 import DropDown from './DropDown';
+import TextArea from './TextArea';
 
 const StyledLabel = styled.div`
   padding: 2px;
@@ -41,7 +41,7 @@ const ContentItem = ({ fieldName, removeButton }) => {
     <FlexContainer className="col-sm-12">
       <StyledLabel>{options[selected]?.label || selected}</StyledLabel>
       <DropDown onSelect={onSelect} options={Object.values(options)} />
-      <FlexInput type="text" name={fieldName} />
+      <TextArea fieldName={fieldName} className="flex-grow" />
       {removeButton}
     </FlexContainer>
   );
