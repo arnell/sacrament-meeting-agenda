@@ -32,7 +32,7 @@ VerbiageRow.propTypes = {
 const DirectiveText = styled.div`
   font-weight: bolder;
   font-style: italic;
-  border-top: black solid 1px;
+  border-top: black solid 2px;
 `;
 
 const DirectiveRow = ({ children }) => (
@@ -112,8 +112,8 @@ const VerbiageOutline = () => (
     <VerbiageRow>
       <StyledSubtext>(stake business)</StyledSubtext>We will now turn the time
       over to <FormikInputField name="stakeRep" style={{ width: 250 }} /> for
-      some stake business. When he is done we will move to the Sacrament portion
-      of our meeting by singing...
+      some stake business. When he is done, we will move to the Sacrament
+      portion of our meeting by singing...
     </VerbiageRow>
     <VerbiageRow>
       <StyledSubtext>(no stake business)</StyledSubtext>
@@ -122,6 +122,10 @@ const VerbiageOutline = () => (
     <div className="row">
       <HymnInput label="Hymn" className="col-sm-12" fieldName="sacramentHymn" />
     </div>
+    <VerbiageRow>
+      after which the sacrament will be administered by the holders of the
+      Aaronic Priesthood.
+    </VerbiageRow>
     <DirectiveRow>STAND UP #3</DirectiveRow>
     <VerbiageRow>
       We thank the holders of the Aaronic Priesthood for the administration of
