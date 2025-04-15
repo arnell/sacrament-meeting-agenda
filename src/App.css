@@ -55,12 +55,19 @@
   }
   input {
     border-width: 0 0 1px;
+    border-color: black;
+    border-style: solid;
   }
   textarea {
     border-width: 0 0 1px;
+    border-color: black;
+    border-style: solid;
   }
   .no-print {
     display: none !important;
+  }
+  body {
+    color: black;
   }
 }
 .row {
