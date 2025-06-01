@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useFormikContext } from 'formik';
 
-import getInitialFields from './getInitialFields';
 import ClearModal from './ClearModal';
 import useLocalStorage from './useLocalStorage';
 
@@ -39,7 +38,7 @@ const MenuButton = styled(StyledButton)`
 const shouldDefaultToToolbarOpen = () => window.innerWidth > 1280;
 
 const Toolbar = () => {
-  const { values, resetForm } = useFormikContext();
+  const { values } = useFormikContext();
   const [showButtons, setShowButtons] = useState(shouldDefaultToToolbarOpen());
   const [sacAgendaVerbiage, setSacAgendaVerbiage] = useLocalStorage(
     'sac-agenda-verbiage',
@@ -90,28 +89,11 @@ const Toolbar = () => {
             <StyledButton
               type="button"
               className="btn btn-primary"
-              onClick={() => {
-                const newValues = { ...values };
-
-                Object.keys(newValues).forEach((key) => {
-                  if (key.indexOf('-count') === -1) {
-                    newValues[key] = '';
-                  }
-                });
-                resetForm({ values: { ...newValues, ...getInitialFields() } });
-                setShowButtons(shouldDefaultToToolbarOpen());
-              }}
-            >
-              Clear All
-            </StyledButton>
-            <StyledButton
-              type="button"
-              className="btn btn-primary"
               data-toggle="modal"
               data-target="#clearSomeModal"
               onClick={() => setShowButtons(shouldDefaultToToolbarOpen())}
             >
-              Clear Some...
+              Clear Fields...
             </StyledButton>
             <StyledButton
               type="button"
