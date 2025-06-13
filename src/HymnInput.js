@@ -380,12 +380,23 @@ const hymns = [
   { id: '1029', name: 'I Can’t Count Them All' },
   { id: '1030', name: 'Close as a Quiet Prayer' },
   { id: '1031', name: 'Come, Hear the Word the Lord Has Spoken' },
+  { id: '1032', name: 'Look unto Christ' },
+  { id: '1033', name: 'Oh, How Great Is Our Joy' },
+  { id: '1034', name: 'I’m a Pioneer Too' },
+  { id: '1035', name: 'As I Keep the Sabbath Day' },
+  { id: '1036', name: 'Read the Book of Mormon and Pray' },
+  { id: '1037', name: 'I’m Gonna Live So God Can Use Me' },
+  { id: '1038', name: 'The Lord’s My Shepherd' },
+  { id: '1039', name: 'Because' },
+  { id: '1040', name: 'His Voice as the Sound' },
+  { id: '1041', name: 'O Lord, Who Gave Thy Life for Me' },
   { id: '1201', name: 'Hail the Day That Sees Him Rise' },
   { id: '1202', name: 'He Is Born, the Divine Christ Child' },
   { id: '1203', name: 'What Child Is This?' },
   { id: '1204', name: 'Star Bright' },
   { id: '1205', name: 'Let Easter Anthems Ring' },
   { id: '1206', name: 'Were You There?' },
+  { id: '1207', name: 'Still, Still, Still' },
 ];
 
 /* eslint-disable no-param-reassign */
