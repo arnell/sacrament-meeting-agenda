@@ -1,13 +1,17 @@
-import React from 'react';
+import type { ChangeEvent } from 'react';
 import { useFormikContext } from 'formik';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
 import FlexContainer from './FlexContainer';
 import FlexInput from './FlexInput';
 import FormikInputField from './FormikInputField';
 
-const hymns = [
+type Hymn = {
+  id: string;
+  name: string;
+};
+
+const hymns: Hymn[] = [
   { id: '1', name: 'The Morning Breaks' },
   { id: '2', name: 'The Spirit of God' },
   { id: '3', name: 'Now Let Us Rejoice' },
@@ -411,12 +415,10 @@ const hymns = [
   { id: '1209', name: 'Little Baby in a Manger' },
 ];
 
-/* eslint-disable no-param-reassign */
-const hymnMap = hymns.reduce((map, current) => {
+const hymnMap = hymns.reduce<Record<string, string>>((map, current) => {
   map[current.id] = current.name;
   return map;
 }, {});
-/* eslint-enable no-param-reassign */
 
 const StyledLabel = styled.div`
   padding: 2px 0 0;
@@ -428,12 +430,18 @@ const StyledHymnNumInput = styled(FormikInputField)`
   margin: 0 10px 0 5px;
 `;
 
-const HymnInput = ({ label, className, fieldName }) => {
+type HymnInputProps = {
+  label: string;
+  className?: string;
+  fieldName: string;
+};
+
+const HymnInput = ({ label, className, fieldName }: HymnInputProps) => {
   const { setFieldValue, handleChange } = useFormikContext();
 
-  const handleNumberChange = (e) => {
+  const handleNumberChange = (e: ChangeEvent<HTMLInputElement>) => {
     handleChange(e);
-    const number = e.target.value;
+    const number: string = e.target.value;
     if (hymnMap[number]) {
       setFieldValue(fieldName, hymnMap[number]);
     } else {
@@ -452,12 +460,6 @@ const HymnInput = ({ label, className, fieldName }) => {
       <FlexInput name={fieldName} />
     </FlexContainer>
   );
-};
-
-HymnInput.propTypes = {
-  label: PropTypes.string.isRequired,
-  className: PropTypes.string,
-  fieldName: PropTypes.string.isRequired,
 };
 
 export default HymnInput;

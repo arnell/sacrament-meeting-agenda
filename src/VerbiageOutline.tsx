@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
+
 import FormikInputField from './FormikInputField';
 import TextBox from './TextBox';
 import Announcements from './Announcements';
@@ -20,14 +20,11 @@ const StyledSubtext = styled.div`
   font-size: smaller;
 `;
 
-const VerbiageRow = ({ children }) => (
+const VerbiageRow = ({ children }: { children: React.ReactNode }) => (
   <div className="row">
     <VerbiageText className="col-sm-12">{children}</VerbiageText>
   </div>
 );
-VerbiageRow.propTypes = {
-  children: PropTypes.node.isRequired,
-};
 
 const DirectiveText = styled.div`
   font-weight: bolder;
@@ -35,14 +32,11 @@ const DirectiveText = styled.div`
   border-top: black solid 2px;
 `;
 
-const DirectiveRow = ({ children }) => (
+const DirectiveRow = ({ children }: { children: React.ReactNode }) => (
   <div className="row">
     <DirectiveText className="col-sm-12">{children}</DirectiveText>
   </div>
 );
-DirectiveRow.propTypes = {
-  children: PropTypes.node.isRequired,
-};
 
 const VerbiageOutline = () => (
   <>
@@ -57,7 +51,7 @@ const VerbiageOutline = () => (
       </div>
     </div>
     <VerbiageRow>
-      Welcome to the <FormikInputField name="ward" style={{ width: 250 }} />{' '}
+      Welcome to the <FormikInputField name="wardName" style={{ width: 250 }} />{' '}
       Sacrament Meeting. My name is
     </VerbiageRow>
     <div className="row">

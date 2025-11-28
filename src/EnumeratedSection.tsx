@@ -1,22 +1,35 @@
 import React from 'react';
 import { useFormikContext } from 'formik';
-import PropTypes from 'prop-types';
 
 import RemoveButton from './RemoveButton';
+
+type SectionItemProps = {
+  index: number;
+  fieldName: string;
+  removeButton?: React.ReactElement;
+};
+
+type EnumeratedSectionProps<T extends SectionItemProps = SectionItemProps> = {
+  sectionItem: React.ComponentType<T>;
+  fieldName: string;
+  addText: string;
+  addButtonColClass?: boolean;
+};
 
 const EnumeratedSection = ({
   sectionItem: SectionItem,
   fieldName,
   addText,
   addButtonColClass = true,
-}) => {
-  const { values: formikValues, setFieldValue } = useFormikContext();
+}: EnumeratedSectionProps) => {
+  const { values: formikValues, setFieldValue } =
+    useFormikContext<Record<string, number>>();
   let itemCount = 1;
   if (formikValues[`${fieldName}-count`]) {
     itemCount = +formikValues[`${fieldName}-count`];
   }
 
-  const updateItemCount = (delta) => {
+  const updateItemCount = (delta: number) => {
     const newValue = itemCount + delta;
     setFieldValue(`${fieldName}-count`, newValue);
     const parentFieldName = `${fieldName}-${itemCount}`;
@@ -36,7 +49,9 @@ const EnumeratedSection = ({
         <SectionItem
           index={i}
           fieldName={`${fieldName}-${i}`}
-          removeButton={i !== 0 && i === itemCount - 1 && removeButton}
+          removeButton={
+            (i !== 0 && i === itemCount - 1 && removeButton) || undefined
+          }
         />
       </div>
     );
@@ -58,13 +73,6 @@ const EnumeratedSection = ({
       </div>
     </>
   );
-};
-
-EnumeratedSection.propTypes = {
-  sectionItem: PropTypes.elementType,
-  fieldName: PropTypes.string,
-  addText: PropTypes.string,
-  addButtonColClass: PropTypes.bool,
 };
 
 export default EnumeratedSection;

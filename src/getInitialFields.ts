@@ -7,7 +7,7 @@ const getNextSundayStr = () => {
   return format(sunday, 'LLLL d, yyyy');
 };
 
-export default () => ({
+export default (): Record<string, unknown> => ({
   date: getNextSundayStr(),
   'announcement-count': 2,
   'ward-business-count': 2,

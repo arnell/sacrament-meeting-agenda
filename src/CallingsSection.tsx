@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
 import CallingInput from './CallingInput';
 import EnumeratedSection from './EnumeratedSection';
@@ -26,17 +25,20 @@ const StyledNote = styled.span`
   font-size: smaller;
 `;
 
-const CallingReleaseRow = ({ fieldName, removeButton }) => (
+type CallingReleaseRowProps = {
+  fieldName: string;
+  removeButton?: React.ReactElement;
+};
+
+const CallingReleaseRow = ({
+  fieldName,
+  removeButton,
+}: CallingReleaseRowProps) => (
   <StyledCallingReleaseRow>
     <StyledCallingInput fieldName={`${fieldName}`} />
     {removeButton}
   </StyledCallingReleaseRow>
 );
-
-CallingReleaseRow.propTypes = {
-  fieldName: PropTypes.string.isRequired,
-  removeButton: PropTypes.oneOfType([PropTypes.element, PropTypes.bool]),
-};
 
 const CallingsSection = () => (
   <div className="row">

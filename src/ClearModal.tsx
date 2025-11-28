@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { Formik, useFormikContext } from 'formik';
 
@@ -9,7 +8,15 @@ const ModalDiv = styled.div`
   font-weight: normal;
 `;
 
-const clearableFields = [
+type ClearableField = {
+  id: string;
+  label?: string;
+  fields: string[];
+  subFields?: string[];
+  checked?: boolean;
+};
+
+const clearableFields: ClearableField[] = [
   {
     id: 'clearPresidingConducting',
     label: 'Presiding / Conducting',
@@ -72,13 +79,15 @@ const clearableFields = [
   },
 ];
 
-const initialValues = clearableFields.reduce(
+type ClearModalValues = Record<string, boolean>;
+
+const initialValues: ClearModalValues = clearableFields.reduce(
   (prev, current) => ({ ...prev, [current.id]: current.checked }),
   {}
 );
 
 const ClearModal = () => {
-  const agendaForm = useFormikContext();
+  const agendaForm = useFormikContext<Record<string, unknown>>();
   const fields = clearableFields.map(({ id, label }) => (
     <div className="form-check" key={id}>
       <FormikInputField
@@ -94,12 +103,12 @@ const ClearModal = () => {
   ));
 
   return (
-    <Formik initialValues={initialValues}>
+    <Formik<ClearModalValues> initialValues={initialValues} onSubmit={() => {}}>
       {({ values }) => (
         <ModalDiv
           className="modal fade"
           id="clearSomeModal"
-          tabIndex="-1"
+          tabIndex={-1}
           aria-labelledby="clearSomeModalLabel"
           aria-hidden="true"
         >
@@ -136,10 +145,14 @@ const ClearModal = () => {
                     const fieldsToNotClear = clearableFields.filter(
                       ({ id }) => !values[id]
                     );
-                    // Always maintain ward field
-                    fieldsToNotClear.push({ fields: ['ward'] });
+                    // Always maintain wardName field
+                    fieldsToNotClear.push({
+                      id: 'wardName',
+                      fields: ['wardName'],
+                    });
 
-                    const initialFields = getInitialFields();
+                    const initialFields: Record<string, unknown> =
+                      getInitialFields();
 
                     Object.keys(newValues).forEach((key) => {
                       const shouldClear = !fieldsToNotClear.find((d) =>

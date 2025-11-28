@@ -1,7 +1,6 @@
 import React from 'react';
 import { useFormikContext } from 'formik';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
 import FlexContainer from './FlexContainer';
 import DropDown from './DropDown';
@@ -12,9 +11,15 @@ const StyledLabel = styled.div`
   margin-right: 2px;
 `;
 
-const ContentItem = ({ fieldName, removeButton }) => {
-  const { values: formikValues, setFieldValue } = useFormikContext();
-  const options = {
+type ContentItemProps = {
+  fieldName: string;
+  removeButton?: React.ReactElement;
+};
+
+const ContentItem = ({ fieldName, removeButton }: ContentItemProps) => {
+  const { values: formikValues, setFieldValue } =
+    useFormikContext<Record<string, string>>();
+  const options: Record<string, { id: string; label: string }> = {
     speaker: { id: 'speaker', label: 'Speaker' },
     musicalNumber: { id: 'musicalNumber', label: 'Musical Number' },
     intermediateHymn: { id: 'intermediateHymn', label: 'Intermediate Hymn' },
@@ -23,12 +28,10 @@ const ContentItem = ({ fieldName, removeButton }) => {
   };
   const selected = formikValues[`${fieldName}-label`] || 'speaker';
 
-  const onSelect = (value) => {
+  const onSelect = (value: string) => {
     let fieldValue;
     if (value === 'custom') {
-      // eslint-disable-next-line no-alert
-      const customLabel = prompt('Enter a label for the item:');
-      fieldValue = customLabel;
+      fieldValue = prompt('Enter a label for the item:');
     } else {
       fieldValue = value;
     }
@@ -45,11 +48,6 @@ const ContentItem = ({ fieldName, removeButton }) => {
       {removeButton}
     </FlexContainer>
   );
-};
-
-ContentItem.propTypes = {
-  fieldName: PropTypes.string,
-  removeButton: PropTypes.oneOfType([PropTypes.element, PropTypes.bool]),
 };
 
 export default ContentItem;

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import ContentItem from './ContentItem';
 import EnumeratedSection from './EnumeratedSection';
 

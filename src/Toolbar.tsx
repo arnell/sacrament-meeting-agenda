@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useFormikContext } from 'formik';
 
@@ -38,7 +38,7 @@ const MenuButton = styled(StyledButton)`
 const shouldDefaultToToolbarOpen = () => window.innerWidth > 1280;
 
 const Toolbar = () => {
-  const { values } = useFormikContext();
+  const { values } = useFormikContext<Record<string, string | number>>();
   const [showButtons, setShowButtons] = useState(shouldDefaultToToolbarOpen());
   const [sacAgendaVerbiage, setSacAgendaVerbiage] = useLocalStorage(
     'sac-agenda-verbiage',
@@ -50,6 +50,7 @@ const Toolbar = () => {
         `${prev}&${current[0]}=${window.encodeURIComponent(current[1])}`,
       ''
     );
+    // @ts-expect-error This is valid.
     window.location = `?${urlQuery.substring(1)}`;
     setShowButtons(shouldDefaultToToolbarOpen());
   };

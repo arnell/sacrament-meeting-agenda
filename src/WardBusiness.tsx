@@ -1,21 +1,24 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import EnumeratedSection from './EnumeratedSection';
 import TextArea from './TextArea';
 
-const SizedTextArea = ({ index, fieldName, removeButton }) => (
+type SizedTextAreaProps = {
+  index: number;
+  fieldName: string;
+  removeButton?: React.ReactElement;
+};
+
+const SizedTextArea = ({
+  index,
+  fieldName,
+  removeButton,
+}: SizedTextAreaProps) => (
   <div className="col-sm-12">
     <TextArea index={index} fieldName={fieldName} removeButton={removeButton} />
   </div>
 );
-
-SizedTextArea.propTypes = {
-  index: PropTypes.number,
-  fieldName: PropTypes.string,
-  removeButton: PropTypes.oneOfType([PropTypes.element, PropTypes.bool]),
-};
 
 const StyleWardBusinessItems = styled.span`
   font-weight: normal;
@@ -23,7 +26,7 @@ const StyleWardBusinessItems = styled.span`
   font-size: smaller;
 `;
 
-const WardBusiness = ({ includeLabel = true }) => (
+const WardBusiness = ({ includeLabel = true }: { includeLabel?: boolean }) => (
   <>
     <div className="row">
       {includeLabel && (
@@ -44,6 +47,3 @@ const WardBusiness = ({ includeLabel = true }) => (
 );
 
 export default WardBusiness;
-WardBusiness.propTypes = {
-  includeLabel: PropTypes.bool,
-};

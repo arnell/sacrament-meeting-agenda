@@ -1,6 +1,4 @@
-import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
 const StyledSpan = styled.span`
   color: #007bff;
@@ -22,7 +20,11 @@ const StyledSpan = styled.span`
   }
 `;
 
-const RemoveButton = ({ onClick }) => (
+type RemoveButtonProps = {
+  onClick: () => void;
+};
+
+const RemoveButton = ({ onClick }: RemoveButtonProps) => (
   <StyledSpan onClick={onClick} className="no-print">
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -49,9 +51,5 @@ const RemoveButton = ({ onClick }) => (
     </svg>
   </StyledSpan>
 );
-
-RemoveButton.propTypes = {
-  onClick: PropTypes.func.isRequired,
-};
 
 export default RemoveButton;

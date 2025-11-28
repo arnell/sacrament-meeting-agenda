@@ -1,6 +1,4 @@
-import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
 import TextArea from './TextArea';
 
@@ -20,17 +18,17 @@ const StyledCallingTextArea = styled(TextArea)`
   flex: 1;
 `;
 
-const CallingInput = ({ className, fieldName }) => (
+type CallingInputProps = {
+  className?: string;
+  fieldName: string;
+};
+
+const CallingInput = ({ className, fieldName }: CallingInputProps) => (
   <ContainerDiv className={`${className}`}>
     <StyledNameTextArea fieldName={`${fieldName}-name`} />
     <StyledAsDiv>as</StyledAsDiv>
     <StyledCallingTextArea fieldName={`${fieldName}-calling`} />
   </ContainerDiv>
 );
-
-CallingInput.propTypes = {
-  className: PropTypes.string,
-  fieldName: PropTypes.string.isRequired,
-};
 
 export default CallingInput;

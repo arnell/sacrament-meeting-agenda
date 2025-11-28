@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
 const StyledWrapperDiv = styled.div`
   margin-right: 5px;
@@ -14,8 +13,16 @@ const StyledDropDownButton = styled.button`
   cursor: pointer;
 `;
 
-const DropDown = ({ onSelect, options }) => {
-  const menuItemClick = (e, value) => {
+type DropDownProps = {
+  onSelect: (value: string) => void;
+  options: { id: string; label: string }[];
+};
+
+const DropDown = ({ onSelect, options }: DropDownProps) => {
+  const menuItemClick = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    value: string
+  ) => {
     e.preventDefault();
     onSelect(value);
   };
@@ -45,13 +52,6 @@ const DropDown = ({ onSelect, options }) => {
       <div className="dropdown-menu">{optionItems}</div>
     </StyledWrapperDiv>
   );
-};
-
-DropDown.propTypes = {
-  onSelect: PropTypes.func.isRequired,
-  options: PropTypes.arrayOf(
-    PropTypes.shape({ id: PropTypes.string, label: PropTypes.string })
-  ),
 };
 
 export default DropDown;

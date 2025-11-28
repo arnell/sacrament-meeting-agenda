@@ -1,22 +1,29 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import EnumeratedSection from './EnumeratedSection';
 import TextArea from './TextArea';
 
-const SizedTextArea = ({ index, fieldName, removeButton }) => (
+type SizedTextAreaProps = {
+  index: number;
+  fieldName: string;
+  removeButton?: React.ReactElement;
+};
+
+const SizedTextArea = ({
+  index,
+  fieldName,
+  removeButton,
+}: SizedTextAreaProps) => (
   <div className="col-sm-12">
     <TextArea index={index} fieldName={fieldName} removeButton={removeButton} />
   </div>
 );
 
-SizedTextArea.propTypes = {
-  index: PropTypes.number,
-  fieldName: PropTypes.string,
-  removeButton: PropTypes.oneOfType([PropTypes.element, PropTypes.bool]),
+type AnnouncementsProps = {
+  includeLabel?: boolean;
 };
 
-const Announcements = ({ includeLabel = true }) => (
+const Announcements = ({ includeLabel = true }: AnnouncementsProps) => (
   <>
     {includeLabel && (
       <div className="row">
@@ -32,6 +39,3 @@ const Announcements = ({ includeLabel = true }) => (
 );
 
 export default Announcements;
-Announcements.propTypes = {
-  includeLabel: PropTypes.bool,
-};
