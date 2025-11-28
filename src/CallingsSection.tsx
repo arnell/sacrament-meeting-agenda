@@ -42,7 +42,7 @@ const CallingReleaseRow = ({
 
 const CallingsSection = () => (
   <div className="row">
-    <div className="col-lg-6">
+    <div className="col-sm-6">
       <div>We Have Released:</div>
       <EnumeratedSection
         sectionItem={CallingReleaseRow}
@@ -58,7 +58,7 @@ const CallingsSection = () => (
         </StyledCallingVerbage>
       </div>
     </div>
-    <div className="col-lg-6">
+    <div className="col-sm-6">
       <div>
         We Have Called:{' '}
         <StyledNote>(and ask to stand, the following)</StyledNote>
