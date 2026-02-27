@@ -404,6 +404,17 @@ const hymns: Hymn[] = [
   { id: '1049', name: 'Joseph Prayed in Faith' },
   { id: '1050', name: 'Stand by Me' },
   { id: '1051', name: 'This Day Is a Good Day, Lord' },
+  { id: '1052', name: 'Joyfully Bound' },
+  { id: '1053', name: 'My Covenants' },
+  { id: '1054', name: 'When I Am Baptized' },
+  { id: '1055', name: 'The Power of the Holy Ghost' },
+  { id: '1056', name: 'Elijah and the Still, Small Voice' },
+  { id: '1057', name: 'Jesus Is My Shepherd' },
+  { id: '1058', name: 'My Song in the Night' },
+  { id: '1059', name: 'This Is My Father’s World' },
+  { id: '1060', name: 'Build an Ark' },
+  { id: '1061', name: 'Love Will Bless Our Home' },
+  { id: '1062', name: 'Lord, Accept Our Humble Fast' },
   { id: '1201', name: 'Hail the Day That Sees Him Rise' },
   { id: '1202', name: 'He Is Born, the Divine Christ Child' },
   { id: '1203', name: 'What Child Is This?' },
@@ -413,6 +424,7 @@ const hymns: Hymn[] = [
   { id: '1207', name: 'Still, Still, Still' },
   { id: '1208', name: 'Go Tell It on the Mountain' },
   { id: '1209', name: 'Little Baby in a Manger' },
+  { id: '1210', name: 'Long Ago, Within a Garden' },
 ];
 
 const hymnMap = hymns.reduce<Record<string, string>>((map, current) => {
