@@ -2,6 +2,18 @@
   size: auto;
   margin: 20px 15px 20px 29px !important;
 }
+
+.row {
+  margin: 10px 0;
+}
+body {
+  font-weight: bold;
+  background-color: #aaa;
+}
+.flex-grow {
+  flex: 1;
+}
+
 @media print {
   .col-sm-1,
   .col-sm-2,
@@ -68,15 +80,9 @@
   }
   body {
     color: black;
+    background-color: white;
   }
-}
-.row {
-  margin: 10px 0;
-}
-body {
-  font-weight: bold;
-  background-color: #aaa;
-}
-.flex-grow {
-  flex: 1;
+  .container {
+    box-shadow: none !important;
+  }
 }
